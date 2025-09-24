@@ -56,22 +56,22 @@ Cypress.Commands.add("findNavbarContainer", () => {
   
   Cypress.Commands.add("stubApiCalls", () => {
     // Stub the /albums/top API call
-    cy.intercept("GET", "https://qtify-backend-labs.crio.do/albums/top", {
+    cy.intercept("GET", "https://qtify-backend.labs.crio.do/albums/top", {
       fixture: "top_albums.json",
     }).as("getTopAlbums");
   
     // Stub the /albums/new API call
-    cy.intercept("GET", "https://qtify-backend-labs.crio.do/albums/new", {
+    cy.intercept("GET", "https://qtify-backend.labs.crio.do/albums/new", {
       fixture: "new_albums.json",
     }).as("getNewAlbums");
   
     // Stub the /genres API call
-    cy.intercept("GET", "https://qtify-backend-labs.crio.do/genres", {
+    cy.intercept("GET", "https://qtify-backend.labs.crio.do/genres", {
       fixture: "genres.json",
     }).as("getGenres");
   
     // Stub the /songs API call
-    cy.intercept("GET", "https://qtify-backend-labs.crio.do/songs", {
+    cy.intercept("GET", "https://qtify-backend.labs.crio.do/songs", {
       fixture: "songs.json",
     }).as("getSongs");
   });
