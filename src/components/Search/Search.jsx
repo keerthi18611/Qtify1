@@ -5,9 +5,8 @@ import useAutocomplete from "@mui/base/useAutocomplete";
 import { styled } from "@mui/system";
 import { truncate } from "../../helpers/helpers";
 import { useNavigate } from "react-router-dom";
-import { Tooltip } from "@mui/material";
 
-const Listbox = styled("ul")(({ theme }) => ({
+const Listbox = styled("ul")(() => ({
   width: "100%",
   margin: 0,
   padding: 0,
@@ -15,18 +14,14 @@ const Listbox = styled("ul")(({ theme }) => ({
   borderRadius: "0px 0px 10px 10px",
   border: "1px solid var(--color-primary)",
   top: 60,
-  height: "max-content",
   maxHeight: "500px",
   zIndex: 10,
-  overflowY: "scroll",
+  overflowY: "auto",
   left: 0,
-  bottom: 0,
-  right: 0,
   listStyle: "none",
   backgroundColor: "var(--color-black)",
-  overflow: "auto",
   "& li.Mui-focused": {
-    backgroundColor: "#4a8df6",
+    backgroundColor: "var(--color-primary)",
     color: "white",
     cursor: "pointer",
   },
@@ -36,69 +31,62 @@ const Listbox = styled("ul")(({ theme }) => ({
   },
 }));
 
-function Search({ searchData, placeholder }) {
+function Search({ data = [], placeholder = "Search" }) {
+  const navigate = useNavigate();
+
   const {
     getRootProps,
-    getInputLabelProps,
     value,
     getInputProps,
     getListboxProps,
     getOptionProps,
     groupedOptions,
   } = useAutocomplete({
-    id: "use-autocomplete-demo",
-    options: searchData || [],
-    getOptionLabel: (option) => option.title,
+    id: "qtify-search",
+    options: data,
+    getOptionLabel: (option) => option.title || "",
   });
 
-  const navigate = useNavigate();
-  const onSubmit = (e, value) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(value);
-    navigate(`/album/${value.slug}`);
-    //Process form data, call API, set state etc.
+    if (value && value.slug) {
+      navigate(`/album/${value.slug}`);
+    }
   };
 
   return (
     <div style={{ position: "relative" }}>
-      <form
-        className={styles.wrapper}
-        onSubmit={(e) => {
-          onSubmit(e, value);
-        }}
-      >
+      <form className={styles.wrapper} onSubmit={handleSubmit}>
         <div {...getRootProps()}>
           <input
             name="album"
             className={styles.search}
             placeholder={placeholder}
-            required
             {...getInputProps()}
           />
         </div>
-        <div>
-          <button className={styles.searchButton} type="submit">
-            <SearchIcon />
-          </button>
-        </div>
+        <button className={styles.searchButton} type="submit" aria-label="search">
+          <SearchIcon />
+        </button>
       </form>
-      {groupedOptions.length > 0 ? (
+
+      {groupedOptions.length > 0 && (
         <Listbox {...getListboxProps()}>
           {groupedOptions.map((option, index) => {
-            // console.log(option);
-            const artists = option.songs.reduce((accumulator, currentValue) => {
-              accumulator.push(...currentValue.artists);
-              return accumulator;
-            }, []);
+            const artists =
+              option.songs?.reduce((acc, curr) => {
+                acc.push(...curr.artists);
+                return acc;
+              }, []) || [];
 
             return (
               <li
+                key={option.id || index}
                 className={styles.listElement}
                 {...getOptionProps({ option, index })}
               >
                 <div>
                   <p className={styles.albumTitle}>{option.title}</p>
-
                   <p className={styles.albumArtists}>
                     {truncate(artists.join(", "), 40)}
                   </p>
@@ -107,7 +95,7 @@ function Search({ searchData, placeholder }) {
             );
           })}
         </Listbox>
-      ) : null}
+      )}
     </div>
   );
 }

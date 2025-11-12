@@ -1,0 +1,20 @@
+:root {
+  --color-green: #00ff00; /* use exact green from Figma */
+  --color-black: #000000;
+}
+
+.btn {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-black);
+  color: var(--color-green);
+  border: 1px solid var(--color-green);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}

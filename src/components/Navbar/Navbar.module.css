@@ -1,9 +1,38 @@
 .navbar {
   background-color: var(--color-primary);
   height: 74px;
-  width: 100vw;
-  padding: 0px 32px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.searchWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 40px;
+}
+
+/* Responsive behavior */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .searchWrapper {
+    width: 100%;
+    margin: 0;
+  }
 }
