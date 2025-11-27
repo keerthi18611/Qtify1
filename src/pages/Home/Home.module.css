@@ -1,0 +1,9 @@
+.home {
+  padding: 0 32px;
+  margin-top: 32px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 48px; /* space between Section components */
+}

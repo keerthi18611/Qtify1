@@ -3,15 +3,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import AlbumCard from "../AlbumCard/AlbumCard";
+import SongCard from "../SongCard/SongCard";
 import styles from "./Carousel.module.css";
 
-function Carousel({ children }) {
+export default function Carousel({ data = [], type }) {
   return (
     <div className={styles.carouselWrapper}>
       <Swiper
         modules={[Navigation]}
         navigation
-        spaceBetween={24}
+        spaceBetween={16}
         slidesPerView={5}
         breakpoints={{
           320: { slidesPerView: 1 },
@@ -20,16 +22,17 @@ function Carousel({ children }) {
           1024: { slidesPerView: 4 },
           1280: { slidesPerView: 5 },
         }}
-        className={styles.swiperContainer}
       >
-        {React.Children.map(children, (child, index) => (
-          <SwiperSlide key={index} className={styles.swiperSlide}>
-            {child}
+        {data.map((item) => (
+          <SwiperSlide key={item.id}>
+            {type === "song" ? (
+              <SongCard data={item} />
+            ) : (
+              <AlbumCard data={item} type={type} />
+            )}
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
   );
 }
-
-export default Carousel;

@@ -1,18 +1,18 @@
-:root {
-  --color-green: #00ff00; /* use exact green from Figma */
-  --color-black: #000000;
-}
-
 .btn {
-  font-family: "Poppins", sans-serif;
-  background-color: var(--color-black);
-  color: var(--color-green);
-  border: 1px solid var(--color-green);
-  border-radius: 8px;
-  cursor: pointer;
-  padding: 10px 16px;
+  background-color: #121212; /* Black pill button */
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: opacity 0.2s ease-in-out;
 }
 
 .btn:hover {

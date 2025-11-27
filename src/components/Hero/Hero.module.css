@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #34c94b;
+  --color-primary: hsl(129, 75%, 44%);
   --color-black: #121212;
   --color-white: #ffffff;
 }
@@ -14,30 +14,38 @@
   color: var(--color-white);
 }
 
-.heroText {
+/* LEFT TEXT SECTION */
+.text {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 10px;
 }
 
-.heroText h1 {
+.text h1 {
   font-size: 32px;
   font-weight: 600;
   line-height: 1.2;
 }
 
-.heroText p {
+.text p {
   font-size: 20px;
   opacity: 0.8;
 }
 
-.heroImage img {
-  width: 212px;
-  height: auto;
+/* RIGHT IMAGE SECTION */
+.visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Responsive adjustments */
+.heroImg {
+  width: 212px;
+  height: 212px;
+  object-fit: contain;
+}
+
+/* RESPONSIVE */
 @media screen and (max-width: 768px) {
   .hero {
     flex-direction: column;
@@ -48,19 +56,16 @@
     gap: 20px;
   }
 
-  .heroText {
-    align-items: center;
-  }
-
-  .heroText h1 {
+  .text h1 {
     font-size: 24px;
   }
 
-  .heroText p {
+  .text p {
     font-size: 16px;
   }
 
-  .heroImage img {
+  .heroImg {
     width: 180px;
+    height: 180px;
   }
 }

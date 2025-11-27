@@ -1,0 +1,42 @@
+{
+  "albumsTop": [
+    {
+      "id": 1,
+      "title": "Chill Vibes",
+      "image": "https://via.placeholder.com/250",
+      "follows": 12000,
+      "slug": "chill-vibes"
+    },
+    {
+      "id": 2,
+      "title": "Top Hits",
+      "image": "https://via.placeholder.com/250",
+      "follows": 19000,
+      "slug": "top-hits"
+    }
+  ],
+
+  "songs": [
+    {
+      "id": 1,
+      "title": "Summer Breeze",
+      "image": "https://via.placeholder.com/250",
+      "likes": 32000,
+      "genre": { "key": "pop", "label": "Pop" }
+    },
+    {
+      "id": 2,
+      "title": "Night Drive",
+      "image": "https://via.placeholder.com/250",
+      "likes": 18000,
+      "genre": { "key": "rock", "label": "Rock" }
+    }
+  ],
+
+  "genres": [
+    { "key": "all", "label": "All" },
+    { "key": "pop", "label": "Pop" },
+    { "key": "rock", "label": "Rock" },
+    { "key": "jazz", "label": "Jazz" }
+  ]
+}

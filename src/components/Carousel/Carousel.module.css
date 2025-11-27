@@ -1,36 +1,27 @@
 .carouselWrapper {
   width: 100%;
   position: relative;
-  padding-bottom: 20px;
+  padding: 16px 0;
 }
 
-.swiperContainer {
-  padding: 10px 0;
-}
-
-.swiperSlide {
+/* Center slides */
+.swiper-slide {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
+/* Navigation buttons (QTify uses green arrows) */
 .swiper-button-prev,
 .swiper-button-next {
-  color: var(--color-green) !important;
-  background: var(--color-black);
-  border-radius: 50%;
-  height: 40px;
+  color: var(--color-primary) !important;
+  /* Increase size for better usability */
   width: 40px;
-  top: 40%;
-  transition: 0.3s;
+  height: 40px;
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  opacity: 0.8;
-}
-
-.swiper-button-disabled {
-  opacity: 0 !important;
-  pointer-events: none !important;
+/* Arrow icons */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px;
+  font-weight: bold;
 }

@@ -1,40 +1,23 @@
 import React from "react";
 import styles from "./AlbumCard.module.css";
 import Chip from "@mui/material/Chip";
+import { formatLikes } from "../../helpers/helpers";
 
-/**
- * AlbumCard Component
- * Reusable component to display Album or Song details
- * Props:
- *  - image: string (album cover)
- *  - title: string (album title)
- *  - follows: number (for albums)
- *  - likes: number (for songs)
- *  - isSong: boolean (to switch chip label)
- */
-export default function AlbumCard({ image, title, follows, likes, isSong }) {
+
+export default function AlbumCard({ data, type }) {
+  if (!data) return null;
   return (
     <div className={styles.card}>
-      {/* Album/Song Image */}
       <div className={styles.imageWrapper}>
-        <img src={image} alt={title} className={styles.image} />
+        <img src={data.image} alt={data.title} className={styles.image} />
         <div className={styles.chipWrapper}>
           <Chip
-            label={
-              isSong
-                ? `${likes?.toLocaleString()} Likes`
-                : `${follows?.toLocaleString()} Follows`
-            }
+            label={type === "song" ? `${formatLikes(data.likes)} Likes` : `${formatLikes(data.follows)} Follows`}
             size="small"
-            className={styles.chip}
           />
         </div>
       </div>
-
-      {/* Album Title */}
-      <div className={styles.albumTitle}>
-        <p title={title}>{title}</p>
-      </div>
+      <div className={styles.albumTitle}><p title={data.title}>{data.title}</p></div>
     </div>
   );
 }

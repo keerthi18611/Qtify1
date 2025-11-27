@@ -1,25 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Button from "../Button/Button";
+import styles from "./Navbar.module.css";
 import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
-import styles from "./Navbar.module.css";
 
 function Navbar({ searchData }) {
   return (
     <nav className={styles.navbar}>
-      {/* Logo redirects to home */}
-      <Link to="/" className={styles.logoLink}>
+      {/* LEFT LOGO */}
+      <a href="/" className={styles.logoLink}>
         <Logo />
-      </Link>
+      </a>
 
-      {/* Search bar in the center */}
+      {/* CENTER SEARCH BAR */}
       <div className={styles.searchWrapper}>
-        <Search placeholder="Search a song of your choice" data={searchData} />
+        <Search
+          data={searchData}
+          placeholder="Search an album of your choice"
+        />
       </div>
 
-      {/* Feedback button on the right */}
-      <Button text="Give Feedback" />
+      {/* RIGHT FEEDBACK BUTTON */}
+      <button className={styles.feedbackBtn}>Give Feedback</button>
     </nav>
   );
 }

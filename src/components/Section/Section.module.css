@@ -1,49 +1,31 @@
 .section {
   margin: 32px 0;
-  color: var(--color-white);
-  padding: 0 32px;
+  color: var(--color-black);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-}
-
-.header h2 {
-  font-size: 24px;
-  font-weight: 600;
+  margin-bottom: 12px;
+  padding: 0 4px;
 }
 
 .toggleButton {
   background: none;
   border: none;
   color: var(--color-primary);
-  font-weight: 500;
-  font-size: 16px;
   cursor: pointer;
+  font-weight: 600;
 }
 
-.toggleButton:hover {
-  opacity: 0.8;
-}
-
-/* Album grid */
 .albumContainer {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
 }
 
-.albumContainer::-webkit-scrollbar {
-  display: none;
-}
-
-/* When “Show All” is active */
 .showAll {
   flex-wrap: wrap;
-  overflow-x: visible;
 }

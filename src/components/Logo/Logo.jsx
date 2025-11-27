@@ -1,14 +1,13 @@
 import React from "react";
-import logo from "../../assets/qtify-logo.png";
 import styles from "./Logo.module.css";
+import logoIcon from "../../assets/Group 3740.svg";
 
 function Logo() {
   return (
-    <img
-      src={logo}
-      alt="qtify-logo"
-      className={styles.logo}
-    />
+    <div className={styles.logo}>
+      <img src={logoIcon} className={styles.icon} alt="QTify Logo" />
+      <span>tify</span>
+    </div>
   );
 }
 
