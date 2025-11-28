@@ -10,9 +10,10 @@ export default function Home() {
   const [newAlbums, setNewAlbums] = useState([]);
   const [songs, setSongs] = useState([]);
 
-  // one showAll per album section
-  const [showAllTop, setShowAllTop] = useState(false);
-  const [showAllNew, setShowAllNew] = useState(false);
+  
+const [showAllTop, setShowAllTop] = useState(false);
+const [showAllNew, setShowAllNew] = useState(false);
+
 
   useEffect(() => {
     async function fetchData() {
@@ -38,27 +39,9 @@ export default function Home() {
     <div className={styles.home}>
       <Hero />
 
-      <Section
-        title="Top Albums"
-        data={topAlbums}
-        type="album"
-        showAll={showAllTop}
-        onShowAll={() => setShowAllTop((s) => !s)}
-      />
+      <Section title="Top Albums" data={topAlbums} type="album" showAll={showAllTop} onShowAll={() => setShowAllTop(s => !s)} />
+<Section title="New Albums" data={newAlbums} type="album" showAll={showAllNew} onShowAll={() => setShowAllNew(s => !s)} />
 
-      <Section
-        title="New Albums"
-        data={newAlbums}
-        type="album"
-        showAll={showAllNew}
-        onShowAll={() => setShowAllNew((s) => !s)}
-      />
-
-      <Section
-        title="Songs"
-        data={songs}
-        type="song"
-      />
     </div>
   );
 }

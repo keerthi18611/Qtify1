@@ -1,15 +1,11 @@
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/navigation";
-
 import AlbumCard from "../AlbumCard/AlbumCard";
 import SongCard from "../SongCard/SongCard";
-
 import styles from "./Carousel.module.css";
-
 import leftArrow from "../../assets/left-arrow.svg";
 import rightArrow from "../../assets/right-arrow.svg";
 
@@ -19,30 +15,17 @@ export default function Carousel({ data = [], type }) {
 
   return (
     <div className={styles.carouselWrapper}>
-
-      {/* LEFT ARROW */}
-      <img
-        ref={prevRef}
-        src={leftArrow}
-        alt="Prev"
-        className={styles.navBtn}
-      />
+      <button ref={el => (prevRef.current = el)} className={styles.navBtn} aria-label="prev">
+        <img src={leftArrow} alt="prev" />
+      </button>
 
       <Swiper
         modules={[Navigation]}
         spaceBetween={16}
         slidesPerView={5}
-        navigation={{
-          prevEl: null,
-          nextEl: null,
-        }}
         onBeforeInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
-        }}
-        onInit={(swiper) => {
-          swiper.navigation.init();
-          swiper.navigation.update();
         }}
         breakpoints={{
           320: { slidesPerView: 1 },
@@ -52,26 +35,16 @@ export default function Carousel({ data = [], type }) {
           1280: { slidesPerView: 5 },
         }}
       >
-        {data.map((item) => (
+        {data.map(item => (
           <SwiperSlide key={item.id}>
-            {type === "song" ? (
-              <SongCard data={item} />
-            ) : (
-              <AlbumCard data={item} />
-            )}
+            {type === "song" ? <SongCard data={item} /> : <AlbumCard data={item} />}
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* RIGHT ARROW */}
-      <img
-        ref={nextRef}
-        src={rightArrow}
-        alt="Next"
-        className={styles.navBtn}
-      />
-
+      <button ref={el => (nextRef.current = el)} className={styles.navBtn} aria-label="next">
+        <img src={rightArrow} alt="next" />
+      </button>
     </div>
   );
 }
-

@@ -3,34 +3,28 @@ import styles from "./Navbar.module.css";
 import logo from "../../assets/qtify-logo.png";
 import SearchIcon from "../../assets/Search-icon.svg";
 
-function Navbar() {
+export default function Navbar() {
   return (
-    <nav className={styles.navbar}>
-
-      {/* LEFT LOGO */}
+    <nav className={styles.navbar} role="navigation">
       <div className={styles.logoWrapper}>
-        <img src={logo} alt="logo" className={styles.logoImage} />
+        <img src={logo} alt="qtify logo" className={styles.logoImage} />
       </div>
 
-      {/* CENTER SEARCH BAR */}
       <div className={styles.searchWrapper}>
         <input
           type="text"
           placeholder="search"
           className={styles.searchInput}
+          aria-label="search"
         />
-        <button className={styles.searchBtn}>
-          <img src={SearchIcon} alt="Search" />
+        <button className={styles.searchBtn} aria-label="search-button">
+          <img src={SearchIcon} alt="search icon" />
         </button>
       </div>
 
-      {/* RIGHT BUTTON */}
-      <button className={`${styles.feedbackBtn} feedback-button`}>
+      <button className={styles.feedbackBtn} aria-label="give-feedback">
         Give Feedback
       </button>
-
     </nav>
   );
 }
-
-export default Navbar;

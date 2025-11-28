@@ -1,66 +1,32 @@
-:root {
-  --color-primary: hsl(129, 75%, 44%);
-  --color-black: #121212;
-  --color-white: #ffffff;
-}
-
-/* MAIN HERO CONTAINER — required for tests */
-.heroContainer {
+.hero {
   width: 100%;
-  background-color: var(--color-black); /* Test 10 passes */
+  background: #121212;   
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 60px 40px;
   box-sizing: border-box;
-
-  overflow: hidden;  
-  position: relative;
-  z-index: 10;
+  color: #fff;
 }
 
-/* LEFT TEXT SECTION */
-.leftContent {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: var(--color-white);
-}
-
-.leftContent h1 {
+.text h1 {
   font-size: 32px;
   font-weight: 600;
-  margin: 0;
-  line-height: 1.2;
+  margin-bottom: 8px;
 }
 
-/* RIGHT IMAGE SECTION */
-.rightContent {
+.text p {
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+.visual {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .heroImg {
-  width: 260px;
-  height: auto;
+  width: 212px;
+  height: 212px;
   object-fit: contain;
-}
-
-/* RESPONSIVE */
-@media screen and (max-width: 768px) {
-  .heroContainer {
-    flex-direction: column;
-    text-align: center;
-    padding: 40px 20px;
-    gap: 20px;
-  }
-
-  .leftContent h1 {
-    font-size: 24px;
-  }
-
-  .heroImg {
-    width: 180px;
-  }
 }
