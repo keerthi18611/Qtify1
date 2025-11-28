@@ -47,3 +47,7 @@
   text-overflow: ellipsis;
   color: white;
 }
+.card:hover {
+  transform: scale(1.03);
+  transition: 0.2s ease-in-out;
+}

@@ -2,10 +2,8 @@
   margin-top: 40px;
   background: #121212;
   position: relative;
-  z-index: 2; /* <-- keep hero above */
+  z-index: 2;
 }
-
-
 
 .headerRow {
   display: flex;
@@ -53,9 +51,14 @@
 }
 
 /* GRID LAYOUT FOR SHOW ALL */
-.grid {
+.gridWrapper {
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 20px;
+}
+
+.gridItem {
+  display: flex;
+  justify-content: center;
 }

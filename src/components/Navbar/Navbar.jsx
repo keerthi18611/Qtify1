@@ -10,14 +10,13 @@ function Navbar() {
       {/* LEFT LOGO */}
       <div className={styles.logoWrapper}>
         <img src={logo} alt="logo" className={styles.logoImage} />
-
       </div>
 
       {/* CENTER SEARCH BAR */}
       <div className={styles.searchWrapper}>
         <input
           type="text"
-          placeholder="Search"
+          placeholder="search"
           className={styles.searchInput}
         />
         <button className={styles.searchBtn}>
@@ -26,7 +25,9 @@ function Navbar() {
       </div>
 
       {/* RIGHT BUTTON */}
-      <button className={styles.feedbackBtn}>Give Feedback</button>
+      <button className={`${styles.feedbackBtn} feedback-button`}>
+        Give Feedback
+      </button>
 
     </nav>
   );

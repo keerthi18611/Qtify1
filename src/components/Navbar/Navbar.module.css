@@ -4,24 +4,25 @@
   background: #34c94b;
   display: flex;
   justify-content: space-between;
-  align-items: center;     /* test #2 requires vertical centering */
+  align-items: center;
   padding: 0 32px;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;  /* required */
+  font-family: "Poppins", sans-serif;
 }
 
+/* LOGO LEFT */
 .logoWrapper {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: 20px; /* REQUIRED */
+  margin-left: 20px;
 }
 
 .logoImage {
   width: 40px;
 }
 
-/* SEARCH BAR CENTER */
+/* SEARCH BAR */
 .searchWrapper {
   width: 50%;
   height: 42px;
@@ -53,14 +54,20 @@
   width: 18px;
 }
 
-/* RIGHT BUTTON */
-.feedbackBtn {
-  background-color: black;    
-  color: #34c94b;          
+.feedbackBtn,
+.feedback-button {
+  background-color: black;     
+  color: #34c94b;              
   border: none;
-       
+  border-radius: 6px;          
   padding: 10px 20px;
-  font-size: 15px;      
+  font-size: 15px;
   font-family: "Poppins", sans-serif;  
   font-weight: 600;
+  cursor: pointer;
+}
+
+.feedbackBtn:hover,
+.feedback-button:hover {
+  cursor: pointer;
 }
