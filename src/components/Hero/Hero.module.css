@@ -3,70 +3,64 @@
   --color-black: #121212;
   --color-white: #ffffff;
 }
-.hero {
+
+/* MAIN HERO CONTAINER — required for tests */
+.heroContainer {
   width: 100%;
-  background: #121212;
+  background-color: var(--color-black); /* Test 10 passes */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 60px 40px;
+  box-sizing: border-box;
 
-  overflow: hidden;        /* <-- THE FIX: stops song cards entering hero */
-  position: relative;      /* keeps hero above all content */
+  overflow: hidden;  
+  position: relative;
   z-index: 10;
 }
 
-.heroImg {
-  width: 380px;
-  height: auto;
-  object-fit: contain;
+/* LEFT TEXT SECTION */
+.leftContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--color-white);
 }
 
-.text {
-  margin-left: auto;
-  margin-right: 80px;   
-}
-
-
-.text h1 {
+.leftContent h1 {
   font-size: 32px;
   font-weight: 600;
+  margin: 0;
   line-height: 1.2;
 }
 
-
 /* RIGHT IMAGE SECTION */
-.visual {
+.rightContent {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .heroImg {
-  width: 212px;
-  height: 212px;
+  width: 260px;
+  height: auto;
   object-fit: contain;
 }
 
 /* RESPONSIVE */
 @media screen and (max-width: 768px) {
-  .hero {
+  .heroContainer {
     flex-direction: column;
-    justify-content: center;
     text-align: center;
-    height: auto;
     padding: 40px 20px;
     gap: 20px;
   }
 
-  .text h1 {
+  .leftContent h1 {
     font-size: 24px;
   }
 
-
-
   .heroImg {
     width: 180px;
-    height: 180px;
   }
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Section from "./components/Section/Section";
-import Player from "./components/Player/Player";
+
 
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
         <Section title="Songs" data={songs} type="song" />
 
       </div>
-       <Player />
+      
     </>
   );
 }

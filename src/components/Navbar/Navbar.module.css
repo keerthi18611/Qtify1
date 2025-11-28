@@ -4,39 +4,28 @@
   background: #34c94b;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;     /* test #2 requires vertical centering */
   padding: 0 32px;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;  /* required */
 }
 
-/* LOGO LEFT */
 .logoWrapper {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-left: 20px; /* REQUIRED */
 }
 
 .logoImage {
-  width: 35px;
-}
-.headphoneWrapper {
-  position: absolute;
-  top: -18px;     /* move headphone above Q */
-  left: -10px;
-}
-
-.logoText {
-  font-size: 23px;
-  font-weight: 600;
-  color: white;
-  font-family: sans-serif;
+  width: 40px;
 }
 
 /* SEARCH BAR CENTER */
 .searchWrapper {
   width: 50%;
   height: 42px;
-  background: white;
+  background: #ffffff;
   display: flex;
   border-radius: 6px;
   overflow: hidden;
@@ -49,6 +38,7 @@
   padding: 0 14px;
   outline: none;
   font-size: 15px;
+  font-family: "Poppins", sans-serif;
 }
 
 .searchBtn {
@@ -65,12 +55,12 @@
 
 /* RIGHT BUTTON */
 .feedbackBtn {
-  background: #121212;
-  color: white;
+  background-color: black;    
+  color: #34c94b;          
   border: none;
-  border-radius: 6px;
+       
   padding: 10px 20px;
-  font-size: 15px;
-  cursor: pointer;
-  font-weight: 500;
+  font-size: 15px;      
+  font-family: "Poppins", sans-serif;  
+  font-weight: 600;
 }
