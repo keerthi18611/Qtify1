@@ -1,26 +1,34 @@
 import React from "react";
 import styles from "./Navbar.module.css";
-import Logo from "../Logo/Logo";
-import Search from "../Search/Search";
+import logo from "../../assets/qtify-logo.png";
+import headphone from "../../assets/headphone-logo.png";
+import SearchIcon from "../../assets/Search-icon.svg";
 
 function Navbar({ searchData }) {
   return (
     <nav className={styles.navbar}>
+
       {/* LEFT LOGO */}
-      <a href="/" className={styles.logoLink}>
-        <Logo />
-      </a>
+      <div className={styles.logoWrapper}>
+        <img src={headphone} className={styles.logoImage} alt="Headphone" />
+        <span className={styles.logoText}>Q tify</span>
+      </div>
 
       {/* CENTER SEARCH BAR */}
       <div className={styles.searchWrapper}>
-        <Search
-          data={searchData}
-          placeholder="Search an album of your choice"
+        <input
+          type="text"
+          placeholder="Search a album of your choice"
+          className={styles.searchInput}
         />
+        <button className={styles.searchBtn}>
+          <img src={SearchIcon} alt="Search" />
+        </button>
       </div>
 
-      {/* RIGHT FEEDBACK BUTTON */}
+      {/* RIGHT FEEDBACK BTN */}
       <button className={styles.feedbackBtn}>Give Feedback</button>
+
     </nav>
   );
 }

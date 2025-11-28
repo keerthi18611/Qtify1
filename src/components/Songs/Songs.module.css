@@ -1,66 +1,20 @@
 .songsSection {
-  margin: 32px 0;
-  padding: 0 4px;
+  margin-top: 40px;
+  padding: 20px 0;
 }
 
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.header h2 {
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--color-black);
-}
-
-/* Tabs Container */
 .tabsContainer {
-  margin: 16px 0 20px 0;
-  width: 100%;
+  margin-bottom: 25px;
 }
 
-/* Tabs wrapper border */
-.tabsContainer .MuiTabs-root {
-  border-bottom: 1px solid var(--color-primary);
-}
-
-/* Individual Tab styling */
-.tabsContainer .MuiTab-root {
-  text-transform: none;
-  font-size: 15px;
-  font-weight: 500;
-  margin-right: 14px;
-  color: var(--color-black);
-  opacity: 0.7;
-  min-width: 70px;    /* better spacing */
-}
-
-/* Hover effect */
-.tabsContainer .MuiTab-root:hover {
-  opacity: 1;
-}
-
-/* Selected (active) tab */
-.tabsContainer .Mui-selected {
-  color: var(--color-primary) ;
-  opacity: 1 ;
-  font-weight: 600;
-}
-
-/* Indicator underline */
-.tabsContainer .MuiTabs-indicator {
-  background-color: var(--color-primary) ;
-  height: 3px;
-  border-radius: 2px;
-}
-
-/* Skeleton Loader */
 .skeletonRow {
   display: flex;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 20px;
+  padding: 10px 0;
 }

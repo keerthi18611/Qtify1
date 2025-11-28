@@ -17,17 +17,17 @@ function Songs() {
     async function loadData() {
       try {
         const [songsRes, genresRes] = await Promise.all([
-         axios.get("https://qtify-backend.labs.crio.do/songs"),
+          axios.get("https://qtify-backend.labs.crio.do/songs"),
           axios.get("https://qtify-backend.labs.crio.do/genres"),
         ]);
 
-        const songsArr = songsRes.data?.data ?? [];
-        const genresArr = genresRes.data?.data ?? [];
+        const songsArr = Array.isArray(songsRes.data) ? songsRes.data : [];
+        const genresArr = Array.isArray(genresRes.data) ? genresRes.data : [];
 
         setSongs(songsArr);
         setGenres([{ key: "all", label: "All" }, ...genresArr]);
       } catch (err) {
-        console.error("Songs fetch failed", err);
+        console.error("Songs fetch failed:", err);
       } finally {
         setLoading(false);
       }
@@ -36,38 +36,25 @@ function Songs() {
     loadData();
   }, []);
 
+  // Filtering logic
   const filteredSongs =
     selectedGenre === "all"
       ? songs
-      : songs.filter((s) => s.genre === selectedGenre);
+      : songs.filter((song) => song.genre.key === selectedGenre);
 
   return (
     <section className={styles.songsSection}>
-      {/* Header */}
-      <div className={styles.header}>
-        <h2>Songs</h2>
-      </div>
+      <h2 className={styles.title}>Songs</h2>
 
-      {/* Tabs */}
+      {/* GENRE TABS */}
       <div className={styles.tabsContainer}>
         <Tabs
           value={selectedGenre}
           onChange={(e, nv) => setSelectedGenre(nv)}
           variant="scrollable"
-          scrollButtons="auto"
-          sx={{
-            "& .MuiTab-root": {
-              textTransform: "none",
-              fontSize: "16px",
-              fontWeight: 500,
-              color: "#666",
-            },
-            "& .Mui-selected": {
-              color: "var(--color-primary) !important",
-            },
-            "& .MuiTabs-indicator": {
-              backgroundColor: "var(--color-primary)",
-            },
+          scrollButtons={false}
+          TabIndicatorProps={{
+            style: { backgroundColor: "#34C759", height: "3px" },
           }}
         >
           {genres.map((g) => (
@@ -75,12 +62,18 @@ function Songs() {
               key={g.key}
               value={g.key}
               label={g.label}
+              sx={{
+                textTransform: "none",
+                fontSize: "16px",
+                fontWeight: selectedGenre === g.key ? 600 : 400,
+                color: selectedGenre === g.key ? "#34C759" : "#444",
+              }}
             />
           ))}
         </Tabs>
       </div>
 
-      {/* Content */}
+      {/* CAROUSEL OR SKELETON */}
       {loading ? (
         <div className={styles.skeletonRow}>
           <Skeleton width="160px" height="140px" />

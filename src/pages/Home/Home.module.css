@@ -1,9 +1,9 @@
 .home {
-  padding: 0 32px;
-  margin-top: 32px;
+  background: #121212;
+  min-height: 100vh;
   width: 100%;
+  padding: 20px 40px;
+  color: white;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 48px; /* space between Section components */
 }
+

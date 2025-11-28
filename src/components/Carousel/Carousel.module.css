@@ -1,27 +1,50 @@
 .carouselWrapper {
-  width: 100%;
   position: relative;
-  padding: 16px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-/* Center slides */
-.swiper-slide {
+/* LEFT + RIGHT NAVIGATION BUTTONS */
+.navBtn {
+  width: 38px;
+  height: 38px;
+  padding: 8px;
+  background: #34c94b;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 20;
+  transition: 0.2s ease;
+  user-select: none;
+
+  /* Perfect vertical alignment */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Left arrow */
+.navBtn:first-of-type {
+  left: -20px;
+}
+
+/* Right arrow */
+.navBtn:last-of-type {
+  right: -20px;
+}
+
+.navBtn:hover {
+  background: #2cb041;
+}
+
+/* Swiper wrapper grows fully */
+.carouselWrapper .swiper {
+  width: 100%;
+}
+
+/* Center each card properly */
+.carouselWrapper .swiper-slide {
   display: flex;
   justify-content: center;
-}
-
-/* Navigation buttons (QTify uses green arrows) */
-.swiper-button-prev,
-.swiper-button-next {
-  color: var(--color-primary) !important;
-  /* Increase size for better usability */
-  width: 40px;
-  height: 40px;
-}
-
-/* Arrow icons */
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 20px;
-  font-weight: bold;
+  align-items: center;
 }

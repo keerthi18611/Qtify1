@@ -1,14 +1,13 @@
 import React from "react";
 import styles from "./Logo.module.css";
-import logoIcon from "../../assets/Group 3740.svg";
+import headphoneLogo from "../../assets/headphone-logo.png";
 
-function Logo() {
+export default function Logo() {
   return (
     <div className={styles.logo}>
-      <img src={logoIcon} className={styles.icon} alt="QTify Logo" />
-      <span>tify</span>
+      <img src={headphoneLogo} alt="Headphones" className={styles.icon} />
+      <span className={styles.q}>Q</span>
+      <span className={styles.tify}>tify</span>
     </div>
   );
 }
-
-export default Logo;

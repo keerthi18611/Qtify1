@@ -12,7 +12,11 @@ export default function SongCard({ data }) {
         <img src={data.image} alt={data.title} className={styles.image} />
 
         <div className={styles.chipWrapper}>
-          <Chip label={`${formatLikes(data.likes)} Likes`} size="small" />
+          <Chip
+            label={`${formatLikes(data.likes)} Likes`}
+            size="small"
+            className={styles.chip}
+          />
         </div>
       </div>
 

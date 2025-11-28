@@ -1,16 +1,16 @@
 .card {
   width: 160px;
-  background: #ffffff;
-  border-radius: 10px;
-  overflow: hidden;
   cursor: pointer;
 }
 
-/* Image section */
+/* Image section (dark background like Qtify) */
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 160px;
+  height: 170px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .image {
@@ -18,22 +18,32 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-/* Chip (Likes/Follows) */
+/* Chip bottom-left like real Qtify */
 .chipWrapper {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  bottom: 8px;
+  left: 8px;
 }
 
-/* Title */
-.albumTitle {
-  padding: 8px 4px;
+/* White chip with black text */
+.chip {
+  background-color: white !important;
+  color: black !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  padding: 0 6px !important;
+}
+
+/* Title under the card */
+.title {
+  margin-top: 10px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: white;
 }

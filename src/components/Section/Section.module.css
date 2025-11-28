@@ -1,31 +1,61 @@
-.section {
-  margin: 32px 0;
-  color: var(--color-black);
+.sectionContainer {
+  margin-top: 40px;
+  background: #121212;
+  position: relative;
+  z-index: 2; /* <-- keep hero above */
 }
 
-.header {
+
+
+.headerRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
-  padding: 0 4px;
 }
 
-.toggleButton {
-  background: none;
-  border: none;
-  color: var(--color-primary);
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.showAllBtn {
+  background: #121212;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 16px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 600;
 }
 
-.albumContainer {
+.showAllBtn:hover {
+  opacity: 0.8;
+}
+
+/* SONG TABS */
+.tabs {
   display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding-bottom: 12px;
+  gap: 12px;
+  margin: 20px 0;
 }
 
-.showAll {
-  flex-wrap: wrap;
+.tab {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.activeTab {
+  background: #00d982;
+  color: white;
+  border-color: #00d982;
+}
+
+/* GRID LAYOUT FOR SHOW ALL */
+.grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
 }

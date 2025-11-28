@@ -1,20 +1,10 @@
 .btn {
-  background-color: #121212; /* Black pill button */
-  color: #ffffff;
+  background-color: black;          
+  color: var(--color-green);         
+  border-radius: 8px;                
+  font-family: "Poppins", sans-serif;
+  padding: 10px 20px;
+  cursor: pointer;                  
   border: none;
-  border-radius: 20px;
-  padding: 8px 20px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: opacity 0.2s ease-in-out;
 }
 
-.btn:hover {
-  opacity: 0.9;
-}

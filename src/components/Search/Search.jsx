@@ -1,90 +1,70 @@
-import React from "react";
-import styles from "./Search.module.css";
-import { useAutocomplete } from "@mui/base";
-import { styled } from "@mui/system";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import Carousel from "../Carousel/Carousel";
+import styles from "./Search.module.css"; 
 
-const Listbox = styled("ul")(() => ({
-  width: "100%",
-  margin: 0,
-  padding: 0,
-  position: "absolute",
-  borderRadius: "0 0 10px 10px",
-  border: "1px solid var(--color-primary)",
-  top: 48,
-  maxHeight: 300,
-  zIndex: 10,
-  overflowY: "auto",
-  left: 0,
-  listStyle: "none",
-  backgroundColor: "#fff",
-  "& li.Mui-focused": {
-    backgroundColor: "var(--color-primary)",
-    color: "white",
-    cursor: "pointer",
-  },
-}));
+export default function Section({ title, data = [], type }) {
+  const [activeTab, setActiveTab] = useState("All");
+  const [showAll, setShowAll] = useState(false);
 
-function Search({ data = [], placeholder = "Search" }) {
-  const navigate = useNavigate();
+  const categories = ["All", "Rock", "Pop", "Jazz", "Blues"];
 
-  const {
-    getRootProps,
-    getInputProps,
-    getListboxProps,
-    getOptionProps,
-    groupedOptions,
-    value,
-  } = useAutocomplete({
-    id: "qtify-search",
-    options: data,
-    getOptionLabel: (option) => option.title || "",
-  });
+  // Song filter
+  const filteredData =
+    type === "song"
+      ? activeTab === "All"
+        ? data
+        : data.filter((song) => song.genre === activeTab)
+      : data;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!value) return;
-
-    if (value.slug) {
-      navigate(`/album/${value.slug}`);
-    } else if (value.id) {
-      navigate(`/album/${value.id}`);
-    }
-  };
+  // Show All expands into grid view
+  const dataToShow = showAll ? filteredData : filteredData.slice(0, 10);
 
   return (
-    <div style={{ position: "relative", width: "100%" }}>
-      <form className={styles.wrapper} onSubmit={handleSubmit}>
-        <div {...getRootProps()}>
-          <input
-            className={styles.search}
-            placeholder={placeholder}
-            {...getInputProps()}
-          />
-        </div>
+    <div className={styles.sectionContainer}>
+      <div className={styles.headerRow}>
+        <h2 className={styles.title}>{title}</h2>
 
-        <button className={styles.searchButton} type="submit">
-  <img src="/assets/Search icon.svg" alt="search" />
-</button>
+        {/* Right Side Show All */}
+        {filteredData.length > 0 && (
+          <button
+            className={styles.showAllBtn}
+            onClick={() => setShowAll((prev) => !prev)}
+          >
+            {showAll ? "Collapse" : "Show All"}
+          </button>
+        )}
+      </div>
 
-      </form>
-
-      {groupedOptions.length > 0 && (
-        <Listbox {...getListboxProps()}>
-          {groupedOptions.map((option, index) => (
-            <li
-              key={option.id || index}
-              className={styles.listElement}
-              {...getOptionProps({ option, index })}
+      {/* Tabs for songs only */}
+      {type === "song" && (
+        <div className={styles.tabs}>
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`${styles.tab} ${
+                activeTab === cat ? styles.activeTab : ""
+              }`}
+              onClick={() => {
+                setActiveTab(cat);
+                setShowAll(false); // Reset show all when changing tab
+              }}
             >
-              <p className={styles.albumTitle}>{option.title}</p>
-            </li>
+              {cat}
+            </button>
           ))}
-        </Listbox>
+        </div>
+      )}
+
+      {/* If Show-All enabled → Grid view | Else → Carousel */}
+      {showAll ? (
+        <div className={styles.grid}>
+          {dataToShow.map((item) => (
+            <div key={item.id}>{item.title || item.name}</div>
+          ))}
+        </div>
+      ) : (
+        <Carousel data={filteredData} type={type} />
       )}
     </div>
   );
 }
-
-export default Search;

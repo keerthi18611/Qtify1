@@ -1,12 +1,14 @@
 .card {
   width: 160px;
+  cursor: pointer;
 }
 
 .imageContainer {
   position: relative;
-  height: 140px;
+  height: 170px;
   overflow: hidden;
   border-radius: 8px;
+  background: #1a1a1a;
 }
 
 .image {
@@ -14,16 +16,28 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 8px;
 }
 
+/* Chip bottom-left like Qtify */
 .chipWrapper {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  bottom: 8px;
+  left: 8px;
+}
+
+/* Make chip white (Qtify style) */
+.chip {
+  background-color: white !important;
+  color: black !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  padding: 0 6px ;
 }
 
 .title {
-  margin-top: 8px;
+  margin-top: 10px;
   font-weight: 500;
   font-size: 14px;
+  color: white;
 }
