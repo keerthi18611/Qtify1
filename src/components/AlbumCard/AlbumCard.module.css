@@ -3,7 +3,6 @@
   cursor: pointer;
 }
 
-/* Image section (dark background like Qtify) */
 .imageWrapper {
   position: relative;
   width: 100%;
@@ -21,14 +20,14 @@
   border-radius: 8px;
 }
 
-/* Chip bottom-left like real Qtify */
+
 .chipWrapper {
   position: absolute;
   bottom: 8px;
   left: 8px;
 }
 
-/* White chip with black text */
+
 .chip {
   background-color: white !important;
   color: black !important;
@@ -37,7 +36,6 @@
   padding: 0 6px !important;
 }
 
-/* Title under the card */
 .title {
   margin-top: 10px;
   font-size: 14px;

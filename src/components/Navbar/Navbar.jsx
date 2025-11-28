@@ -12,11 +12,12 @@ export default function Navbar() {
 
       <div className={styles.searchWrapper}>
         <input
-          type="text"
-          placeholder="search"
-          className={styles.searchInput}
-          aria-label="search"
-        />
+  type="text"
+  placeholder="Search a song of your choice"
+  className={styles.searchInput}
+  aria-label="search"
+/>
+
         <button className={styles.searchBtn} aria-label="search-button">
           <img src={SearchIcon} alt="search icon" />
         </button>

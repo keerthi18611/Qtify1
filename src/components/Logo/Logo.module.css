@@ -7,7 +7,7 @@
 .icon {
   height: 28px;
   width: 28px;
-  margin-top: 2px; /* aligns with Q letter */
+  margin-top: 2px; 
 }
 
 .q {
@@ -20,6 +20,5 @@
   font-size: 28px;
   font-weight: 500;
   color: white;
-  margin-left: -4px; /* tighten spacing like screenshot */
-}
+  margin-left: -4px; }
 

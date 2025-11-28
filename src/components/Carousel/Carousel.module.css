@@ -3,5 +3,5 @@
 .navBtn img { width: 18px; }
 .navBtn[aria-label="prev"] { left: 8px; }
 .navBtn[aria-label="next"] { right: 8px; }
-.carouselWrapper .swiper { width: 100%; padding: 8px 56px; } /* leave room for arrows */
+.carouselWrapper .swiper { width: 100%; padding: 8px 56px; } 
 .carouselWrapper .swiper-slide { display:flex; justify-content:center; align-items:center; }
